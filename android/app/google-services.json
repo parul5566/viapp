@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "389813857514",
+    "project_id": "viapp-a5773",
+    "storage_bucket": "viapp-a5773.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389813857514:android:255a7dc8f4984015a07b93",
+        "android_client_info": {
+          "package_name": "com.viapp.viapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389813857514-5tn78iss08vi2pgkel8n3mbatrnm3l5l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.viapp.viapp",
+            "certificate_hash": "c005d525603537cad08cf24875a1cc1458de85b4"
+          }
+        },
+        {
+          "client_id": "389813857514-f615sdg5k2m3uct1nick26q4hrktovko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDtRB9Gt0NBw9ycppxF0CMkc-lEmlShOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389813857514-f615sdg5k2m3uct1nick26q4hrktovko.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
