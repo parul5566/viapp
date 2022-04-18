@@ -184,12 +184,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 obscureText: _obscureText,
                                 decoration: InputDecoration(
                                   hintText: "password must be 6 character",
-                                  hintStyle: TextStyle(
+                                  hintStyle: const TextStyle(
                                     fontSize: 14,
                                     color: Color(0xFF414041),
                                   ),
                                   labelText: 'PASSWORD',
-                                  labelStyle: TextStyle(
+                                  labelStyle: const TextStyle(
                                     fontSize: 15,
                                     color: AppColors.deep_orange,
                                   ),
@@ -258,7 +258,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               },
                             )
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -270,4 +270,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+
+
 }

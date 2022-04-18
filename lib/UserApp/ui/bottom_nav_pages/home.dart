@@ -138,7 +138,9 @@ class _HomeState extends State<Home> {
                       crossAxisCount: 2, childAspectRatio: 1),
                   itemBuilder: (_, index) {
                     return GestureDetector(
+/*
                       onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (_)=>ProductDetails(_products[index]))),
+*/
                       child: Card(
                         elevation: 3,
                         child: Column(

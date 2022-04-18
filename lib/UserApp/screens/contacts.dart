@@ -1,6 +1,9 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:viapp/UserApp/ui/login_screen.dart';
 
 import 'add_contacts.dart';
 import 'edit_contact.dart';
@@ -13,11 +16,17 @@ class Contacts extends StatefulWidget {
 }
 
 class _ContactsState extends State<Contacts> {
+
+
+
+
+
   late Query _ref;
   DatabaseReference reference =
   FirebaseDatabase.instance.reference().child('Complaints');
   @override
   void initState() {
+    getEmail();
     // TODO: implement initState
     super.initState();
     _ref = FirebaseDatabase.instance
@@ -25,6 +34,34 @@ class _ContactsState extends State<Contacts> {
         .child('Complaints')
         .orderByChild('name');
   }
+  String email = "";
+
+  Future getEmail()async{
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    setState(() {
+      email = preferences.getString('email');
+    });
+  }
+
+  Future logOut(BuildContext context)async{
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.remove('email');
+    Fluttertoast.showToast(
+        msg: "Logout Successful",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.amber,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen(),),);
+  }
+
+
+
+
+
+
 
   Widget _buildContactItem({required Map contact}) {
     Color typeColor = getTypeColor(contact['type']);

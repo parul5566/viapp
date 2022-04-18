@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../const/AppColors.dart';
 import '../widgets/customButton.dart';
 import '../widgets/myTextField.dart';
@@ -38,10 +37,8 @@ class _UserFormState extends State<UserForm> {
   }
 
   sendUserDataToDB()async{
-
     final FirebaseAuth _auth = FirebaseAuth.instance;
     var  currentUser = _auth.currentUser;
-
     CollectionReference _collectionRef = FirebaseFirestore.instance.collection("users-form-data");
     return _collectionRef.doc(currentUser!.email).set({
       "name":_nameController.text,
@@ -118,26 +115,20 @@ class _UserFormState extends State<UserForm> {
                   ),
                 ),
                 myTextField("enter your age",TextInputType.number,_ageController),
-
-
-
                 SizedBox(
                   height: 15,
                 ),
                 myTextField("enter your currentaddresss",TextInputType.text,_currentaddressController),
-
-
                 SizedBox(
                   height: 15,
                 ),
                 myTextField("enter your permanentaddress",TextInputType.text,_permanentaddressController),
-
                 SizedBox(
                   height: 50,
                 ),
-
                 // elevated button
-               customButton("Continue",()=>sendUserDataToDB()),
+               customButton("Continue",()=>sendUserDataToDB()
+               ),
               ],
             ),
           ),
