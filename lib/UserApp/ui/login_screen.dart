@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:viapp/UserApp/ui/registration_screen.dart';
 
 import '../const/AppColors.dart';
@@ -17,7 +18,42 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+/*
+  final PrefService _prefService = PrefService();
+*/
   bool _obscureText = true;
+  late SharedPreferences logindata;
+  late bool newuser;
+
+
+
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+/*    check_if_already_login();*/
+  }
+
+
+/*
+  void check_if_already_login() async {
+    logindata = await SharedPreferences.getInstance();
+    newuser = (logindata.getBool('login') ?? true);
+    print(newuser);
+    if (newuser == false) {
+      Navigator.pushReplacement(
+          context, new MaterialPageRoute(builder: (context) => BottomNavController()));
+    }
+  }*/
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+
+
 
   signIn()async{
     try {
@@ -28,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
       var authCredential = userCredential.user;
       print(authCredential!.uid);
       if(authCredential.uid.isNotEmpty){
-        Navigator.push(context, CupertinoPageRoute(builder: (_)=>BottomNavController()));
+            Navigator.push(context, CupertinoPageRoute(builder: (_)=>BottomNavController()));
       }
       else{
         Fluttertoast.showToast(msg: "Something is wrong");
@@ -219,10 +255,18 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-
                         SizedBox(
                           height: 50,
                         ),
+                     /*   ElevatedButton(
+                            onPressed: () async {
+                              _prefService.createCache(_passwordController.text).whenComplete(() {
+                                if (_emailController.text.isNotEmpty && _passwordController.text.isNotEmpty) {
+                                  Navigator.push(context, CupertinoPageRoute(builder: (_)=>BottomNavController()));
+                                }
+                              });
+                            },
+                            child: Text("Login")),*/
                         // elevated button
                         customButton("Sign In", (){
                           signIn();
@@ -270,7 +314,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
-
-
 }
+
+
+

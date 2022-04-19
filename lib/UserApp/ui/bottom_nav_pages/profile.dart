@@ -60,6 +60,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: SafeArea(child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: StreamBuilder(

@@ -326,7 +326,10 @@ class _MapsSampleState extends State<MapsSample> {
 
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:viapp/UserApp/ui/auth_controller.dart';
+import 'package:viapp/UserApp/ui/login_screen.dart';
 
 import 'contacts.dart';
 
@@ -342,19 +345,30 @@ class _UserPageState extends State<UserPage> {
 
   bool isLoading = false;
   double value  = 0;
-
+  final PrefService _prefService = PrefService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
+     /*   actions: [IconButton(onPressed: () async {
+          await _prefService.removeCache("password").whenComplete(() {
+            Navigator.push(
+                context,
+                CupertinoPageRoute(
+                    builder: (context) =>
+                        LoginScreen()));
+          });
+
+
+        }, icon: Icon(Icons.logout))],*/
+
         automaticallyImplyLeading: false,
         title: Center(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset('assets/icon.png',width: 30),
-              Text('Village Complaint App'),
-              Image.asset('assets/icon.png',width: 30),
+              Text('Gramin Complaint App'),
             ],
           ),
         ),
@@ -370,7 +384,7 @@ class _UserPageState extends State<UserPage> {
               SizedBox(height: 20),
               Text(("Submit your Complaint")),
               SizedBox(height: 20),
-              Text(("At Village app you can complaint to any query to help")),
+              Text(("At Gramin app , you can complaint to any query to help")),
               SizedBox(height: 20),
               Container(
                 width: 150,
@@ -438,4 +452,6 @@ class _UserPageState extends State<UserPage> {
     );
   }
 }
+
+
 
