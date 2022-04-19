@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:viapp/PradhaanApp/screens/bottom_nav.dart';
+import 'package:viapp/PradhaanApp/screens/notifi_cation.dart';
 import 'package:viapp/UserApp/screens/contacts.dart';
 import 'package:viapp/UserApp/screens/map_screen.dart';
 import 'package:viapp/UserApp/ui/search_screen.dart';
@@ -18,7 +19,7 @@ class _BottomNavControllerState extends State<BottomNavController> {
   final _pages = [
     UserPage(),
     const Contacts(),
-    const NotificationP(),
+     NotificationPage(),
     const Profile(),
     const SearchScreen(),
   ];

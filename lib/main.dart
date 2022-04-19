@@ -12,7 +12,6 @@ void main() async {
 
 Future init() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) =>  BaseApp(),
+        '/': (context) =>  const BaseApp(),
         '/LoginAsUser': (context) =>   LoginScreen(),
         '/LoginAsPradhaan': (context) =>  const LoginPradhaan(),
         // When navigating to the "/second" route, build the SecondScreen widget.
@@ -54,9 +53,9 @@ class BaseApp extends StatefulWidget {
 class _BaseAppState extends State<BaseApp> {
   double value  = 0;
   bool isLoading = false;
+/*  final authController = AuthController();*/
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
      /* appBar: AppBar(
         title: Center(child: Text('Login For Village App')),

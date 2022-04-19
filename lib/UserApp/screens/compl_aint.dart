@@ -33,7 +33,7 @@ class _ComplaintPageState extends State<ComplaintPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset('assets/icon.png',width: 30),
-              Text('Village Complaint App'),
+              Text('Gramin Complaint App'),
               Image.asset('assets/icon.png',width: 30),
             ],
           ),

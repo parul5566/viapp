@@ -175,7 +175,7 @@ class _EditContactState extends State<EditContact> {
     _nameController.text = contact!['name'];
 
     _numberController.text = contact['number'];
-    _queryController.text = contact!['query'];
+    _queryController.text = contact['query'];
     setState(() {
       _typeSelected = contact['type'];
     });

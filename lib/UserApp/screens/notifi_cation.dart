@@ -14,28 +14,21 @@ class _NotificationPageState extends State<NotificationPage> {
 
        appBar: AppBar(automaticallyImplyLeading: false,),
 
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            SizedBox(height: 10),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Text('Notifications',style: TextStyle(
-                fontWeight: FontWeight.bold,
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Image.asset('assets/icon.png',width: 200),
 
-              ),),
-            ),
-            SizedBox(height: 10),
-            Image.asset('assets/icon.png',width: 200),
+              SizedBox(height: 20),
 
-            SizedBox(height: 20),
-
-            Align(
-                alignment: Alignment.center,
-                child: Text('You will find all your notification here. let"s get you started ,'
-                    'go ahead and submit a complaint!')),
-          ],
+              Align(
+                  alignment: Alignment.center,
+                  child: Text('You will find all your notification here. let"s get you started ,'
+                      'go ahead and submit a complaint!')),
+            ],
+          ),
         ),
       ),
     );
