@@ -16,7 +16,7 @@
 
 
    <application
-        android:label="viapp"
+        android:label="GraminApp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
