@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:viapp/PradhaanApp/screens/bottom_nav.dart';
 import 'package:viapp/PradhaanApp/screens/contacts.dart';
 import 'package:viapp/PradhaanApp/screens/main_screen.dart';
-import 'package:viapp/PradhaanApp/screens/notifi_cation.dart';
 import 'package:viapp/UserApp/const/AppColors.dart';
-import 'package:viapp/UserApp/ui/search_screen.dart';
 
 
 import 'bottom_nav_pages/profile.dart';
@@ -17,11 +14,9 @@ class BottomNavController1 extends StatefulWidget {
 
 class _BottomNavController1State extends State<BottomNavController1> {
   final _pages = [
-    const HomePage(),
-     const ComplaintList(),
-   /*   NotificationPage(),*/
     const PradhaanProfile(),
-   /* const SearchScreen(),*/
+    const ComplaintList(),
+    const HomePage(),
   ];
   var _currentIndex = 0;
 
@@ -54,21 +49,21 @@ class _BottomNavController1State extends State<BottomNavController1> {
           BottomNavigationBarItem(
               icon: Icon(Icons.filter_list), label: ("User List")),
 
-          BottomNavigationBarItem(
+      /*    BottomNavigationBarItem(
             icon: Icon(Icons.notification_important),
             label: ("Notification"),
-          ),
+          ),*/
 
+
+         /* BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: ("Person"),
+          ),*/
 
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: ("Person"),
+            label: ("Profile"),
           ),
-
-          /*BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: ("Search"),
-          ),*/
 
         ],
         onTap: (index) {

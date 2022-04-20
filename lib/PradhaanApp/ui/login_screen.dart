@@ -148,7 +148,7 @@ class _LoginPradhaanState extends State<LoginPradhaan> {
                               fontSize: 22, color: AppColors.deep_orange),
                         ),
                         Text(
-                          "Glad to see you back my User.",
+                          "Glad to see you back .",
                           style: TextStyle(
                             fontSize: 14,
                             color: Color(0xFFBBBBBB),
