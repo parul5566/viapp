@@ -183,7 +183,7 @@ class _ContactsState extends State<Contacts> {
                     SizedBox(
                       width: 6,
                     ),*/
-                    Text('Status : -',
+                    Text('Status : -Pending',
                         style: TextStyle(
                             fontSize: 12,
                             color: Theme.of(context).primaryColor,

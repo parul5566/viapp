@@ -1,3 +1,4 @@
+/*
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -82,14 +83,16 @@ class _LoginPradhaanState extends State<LoginPradhaan> {
           passwordController.text = value!;
         },
         textInputAction: TextInputAction.done,
-        decoration: /*InputDecoration(
+        decoration: */
+/*InputDecoration(
           prefixIcon: Icon(Icons.vpn_key),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-        )*/
+        )*//*
+
         InputDecoration(
           prefixIcon: Icon(Icons.vpn_key),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
@@ -114,7 +117,8 @@ class _LoginPradhaanState extends State<LoginPradhaan> {
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
       color: Colors.green,
-      child: /*MaterialButton(
+      child: */
+/*MaterialButton(
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
@@ -125,7 +129,8 @@ class _LoginPradhaanState extends State<LoginPradhaan> {
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
-          )),*/
+          )),*//*
+
 
       MaterialButton(
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
@@ -293,3 +298,4 @@ class _LoginPradhaanState extends State<LoginPradhaan> {
   }
 
 }
+*/

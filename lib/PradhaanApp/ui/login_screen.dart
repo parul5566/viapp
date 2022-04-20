@@ -4,18 +4,20 @@ import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:viapp/PradhaanApp/ui/registration_screen.dart';
+import 'package:viapp/UserApp/const/AppColors.dart';
 import 'package:viapp/UserApp/ui/registration_screen.dart';
+import 'package:viapp/UserApp/widgets/customButton.dart';
 
-import '../const/AppColors.dart';
-import '../widgets/customButton.dart';
+
 import 'bottom_nav_controller.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginPradhaan extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _LoginPradhaanState createState() => _LoginPradhaanState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginPradhaanState extends State<LoginPradhaan> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 /*
@@ -65,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       print(authCredential!.uid);
       if(authCredential.uid.isNotEmpty){
-            Navigator.push(context, CupertinoPageRoute(builder: (_)=>BottomNavController()));
+            Navigator.push(context, CupertinoPageRoute(builder: (_)=>BottomNavController1()));
       }
       else{
         Fluttertoast.showToast(msg: "Something is wrong");
@@ -299,7 +301,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     context,
                                     CupertinoPageRoute(
                                         builder: (context) =>
-                                            RegistrationScreen()));
+                                            SignupScreen()));
                               },
                             )
                           ],

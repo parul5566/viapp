@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:viapp/PradhaanApp/screens/login_screen.dart';
+import 'package:viapp/PradhaanApp/ui/login_screen.dart';
 import 'package:viapp/UserApp/ui/login_screen.dart';
 
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) =>  const BaseApp(),
         '/LoginAsUser': (context) =>   LoginScreen(),
-        '/LoginAsPradhaan': (context) =>  const LoginPradhaan(),
+        '/LoginAsPradhaan': (context) =>   LoginPradhaan(),
         // When navigating to the "/second" route, build the SecondScreen widget.
           },
     );
@@ -154,7 +155,7 @@ class _BaseAppState extends State<BaseApp> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                const LoginPradhaan())
+                                 LoginPradhaan())
                     );
                     // we had used future delayed to stop loading after
                     // 3 seconds and show text "submit" on the screen.

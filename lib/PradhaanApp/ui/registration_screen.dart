@@ -3,80 +3,44 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:viapp/UserApp/ui/registration_screen.dart';
+import 'package:viapp/UserApp/const/AppColors.dart';
+import 'package:viapp/UserApp/ui/user_form.dart';
 
-import '../const/AppColors.dart';
-import '../widgets/customButton.dart';
-import 'bottom_nav_controller.dart';
+import 'login_screen.dart';
+import 'user_form.dart';
 
-class LoginScreen extends StatefulWidget {
+
+class SignupScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-/*
-  final PrefService _prefService = PrefService();
-*/
   bool _obscureText = true;
-  late SharedPreferences logindata;
-  late bool newuser;
 
-
-
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-/*    check_if_already_login();*/
-  }
-
-
-/*
-  void check_if_already_login() async {
-    logindata = await SharedPreferences.getInstance();
-    newuser = (logindata.getBool('login') ?? true);
-    print(newuser);
-    if (newuser == false) {
-      Navigator.pushReplacement(
-          context, new MaterialPageRoute(builder: (context) => BottomNavController()));
-    }
-  }*/
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is disposed.
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-
-
-
-  signIn()async{
+  signUp()async{
     try {
-      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _emailController.text,
           password: _passwordController.text
       );
       var authCredential = userCredential.user;
-      SharedPreferences prefs = await SharedPreferences.getInstance();
       print(authCredential!.uid);
       if(authCredential.uid.isNotEmpty){
-            Navigator.push(context, CupertinoPageRoute(builder: (_)=>BottomNavController()));
+        Navigator.push(context, CupertinoPageRoute(builder: (_)=>PradhaanForm()));
       }
       else{
         Fluttertoast.showToast(msg: "Something is wrong");
       }
 
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        Fluttertoast.showToast(msg: "No user found for that email.");
+      if (e.code == 'weak-password') {
+        Fluttertoast.showToast(msg: "The password provided is too weak.");
 
-      } else if (e.code == 'wrong-password') {
-        Fluttertoast.showToast(msg: "Wrong password provided for that user.");
+      } else if (e.code == 'email-already-in-use') {
+        Fluttertoast.showToast(msg: "The account already exists for that email.");
 
       }
     } catch (e) {
@@ -93,31 +57,36 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             SizedBox(
               height: 150,
-              width: 150,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  IconButton(
-                    onPressed: null,
-                    icon: Icon(
-                      Icons.light,
-                      color: Colors.transparent,
+              width: 120,
+              child: Padding(
+                padding: EdgeInsets.only(left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    IconButton(
+                      onPressed: null,
+                      icon: Icon(
+                        Icons.light,
+                        color: Colors.transparent,
+                      ),
                     ),
-                  ),
-                  /*Text(
-                    "Sign In",
-                    style: TextStyle(fontSize: 22, color: Colors.white),
-                  ),*/
-                  Center(
-                    child: SizedBox(
+                  /*  Text(
+                      "Sign Up",
+                      style: TextStyle(fontSize: 22, color: Colors.white),
+                    ),*/
+
+
+                    SizedBox(
                         height: 100,
-                        child: Image.asset(
-                          "assets/icon.png",
-                          fit: BoxFit.contain,
+                        child: Center(
+                          child: Image.asset(
+                            "assets/icon.png",
+                            fit: BoxFit.contain,
+                          ),
                         )),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Expanded(
@@ -141,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 20,
                         ),
                         Text(
-                          "Welcome Back",
+                          "Welcome User!",
                           style: TextStyle(
                               fontSize: 22, color: AppColors.deep_orange),
                         ),
@@ -221,12 +190,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 obscureText: _obscureText,
                                 decoration: InputDecoration(
                                   hintText: "password must be 6 character",
-                                  hintStyle: const TextStyle(
+                                  hintStyle: TextStyle(
                                     fontSize: 14,
                                     color: Color(0xFF414041),
                                   ),
                                   labelText: 'PASSWORD',
-                                  labelStyle: const TextStyle(
+                                  labelStyle: TextStyle(
                                     fontSize: 15,
                                     color: AppColors.deep_orange,
                                   ),
@@ -256,22 +225,29 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
+
                         SizedBox(
                           height: 50,
                         ),
-                     /*   ElevatedButton(
-                            onPressed: () async {
-                              _prefService.createCache(_passwordController.text).whenComplete(() {
-                                if (_emailController.text.isNotEmpty && _passwordController.text.isNotEmpty) {
-                                  Navigator.push(context, CupertinoPageRoute(builder: (_)=>BottomNavController()));
-                                }
-                              });
-                            },
-                            child: Text("Login")),*/
                         // elevated button
-                        customButton("Sign In", (){
-                          signIn();
-                        },),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          height: 40,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              signUp();
+                            },
+                            child: Text(
+                              "Continue",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 18),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              primary: AppColors.deep_orange,
+                              elevation: 3,
+                            ),
+                          ),
+                        ),
                         SizedBox(
                           height: 20,
                         ),
@@ -287,7 +263,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             GestureDetector(
                               child: Text(
-                                " Sign Up",
+                                " Sign In",
                                 style: TextStyle(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w600,
@@ -298,12 +274,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Navigator.push(
                                     context,
                                     CupertinoPageRoute(
-                                        builder: (context) =>
-                                            RegistrationScreen()));
+                                        builder: (context) => LoginPradhaan()));
                               },
                             )
                           ],
-                        ),
+                        )
                       ],
                     ),
                   ),
@@ -316,6 +291,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-
-

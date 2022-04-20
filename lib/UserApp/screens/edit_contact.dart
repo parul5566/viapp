@@ -35,7 +35,7 @@ class _EditContactState extends State<EditContact> {
         width: 90,
         decoration: BoxDecoration(
           color: _typeSelected == title
-              ? Colors.yellow
+              ? Colors.black
               : Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(15),
         ),

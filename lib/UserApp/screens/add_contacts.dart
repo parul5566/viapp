@@ -36,7 +36,7 @@ Widget _buildContactType(String title){
       width: 90,
 
       decoration: BoxDecoration(
-        color: _typeSelected == title? Colors.yellow : Theme.of(context).colorScheme.secondary,
+        color: _typeSelected == title? Colors.black : Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(15),
       ),
 

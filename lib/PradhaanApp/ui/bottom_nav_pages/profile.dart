@@ -2,14 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+class PradhaanProfile extends StatefulWidget {
+  const PradhaanProfile({Key? key}) : super(key: key);
 
   @override
-  _ProfileState createState() => _ProfileState();
+  _PradhaanProfileState createState() => _PradhaanProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _PradhaanProfileState extends State<PradhaanProfile> {
   TextEditingController ?_nameController;
   TextEditingController ?_phoneController;
   TextEditingController ?_ageController;
@@ -84,7 +84,7 @@ class _ProfileState extends State<Profile> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: StreamBuilder(
-            stream: FirebaseFirestore.instance.collection("users-form-data").doc(FirebaseAuth.instance.currentUser!.email).snapshots(),
+            stream: FirebaseFirestore.instance.collection("Pradhan-form-data").doc(FirebaseAuth.instance.currentUser!.email).snapshots(),
             builder: (BuildContext context, AsyncSnapshot snapshot){
               var data = snapshot.data;
               if(data==null){
