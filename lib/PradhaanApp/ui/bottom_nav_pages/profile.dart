@@ -52,7 +52,7 @@ class _PradhaanProfileState extends State<PradhaanProfile> {
   }
 
   updateData(){
-    CollectionReference _collectionRef = FirebaseFirestore.instance.collection("users-form-data");
+    CollectionReference _collectionRef = FirebaseFirestore.instance.collection("Pradhan-form-data");
     return _collectionRef.doc(FirebaseAuth.instance.currentUser!.email).update(
         {
           "name":_nameController!.text,

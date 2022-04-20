@@ -26,14 +26,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
-class NotificationP extends StatefulWidget {
-  const NotificationP({Key? key}) : super(key: key);
+class NotificationPage1 extends StatefulWidget {
+  const NotificationPage1({Key? key}) : super(key: key);
 
   @override
-  State<NotificationP> createState() => _NotificationPState();
+  State<NotificationPage1> createState() => _NotificationPage1State();
 }
 
-class _NotificationPState extends State<NotificationP> {
+class _NotificationPage1State extends State<NotificationPage1> {
   String notificationTitle = 'Location';
   String notificationBody = 'Person';
   String notificationData = 'No Data';

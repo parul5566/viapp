@@ -13,14 +13,14 @@ class ComplaintList extends StatefulWidget {
 class _ComplaintListState extends State<ComplaintList> {
   late Query _ref;
   DatabaseReference reference =
-  FirebaseDatabase.instance.reference().child('Contacts');
+  FirebaseDatabase.instance.reference().child('Complaints');
   @override
   void initState() {
 
     super.initState();
     _ref = FirebaseDatabase.instance
         .reference()
-        .child('Contacts')
+        .child('Complaints')
         .orderByChild('name');
   }
   Widget _buildContactItem({required Map contact}) {
