@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:viapp/PradhaanApp/screens/bottom_nav.dart';
 import 'package:viapp/PradhaanApp/screens/notifi_cation.dart';
 import 'package:viapp/UserApp/screens/contacts.dart';
 import 'package:viapp/UserApp/screens/map_screen.dart';
+import 'package:viapp/UserApp/ui/phone_otp_screen.dart';
 import 'package:viapp/UserApp/ui/search_screen.dart';
 
 import '../const/AppColors.dart';
@@ -66,7 +66,6 @@ class _BottomNavControllerState extends State<BottomNavController> {
             icon: Icon(Icons.search),
             label: ("Search"),
           ),
-
         ],
         onTap: (index) {
           setState(() {

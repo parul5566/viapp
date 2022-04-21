@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:viapp/PradhaanApp/screens/login_screen.dart';
 import 'package:viapp/PradhaanApp/ui/login_screen.dart';
 import 'package:viapp/UserApp/ui/login_screen.dart';
 
@@ -168,7 +167,7 @@ class _BaseAppState extends State<BaseApp> {
                   },
                   child: const Text(
                   "Login As Pradhaan",
-                  textAlign: TextAlign.center,
+                    textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
                 ),

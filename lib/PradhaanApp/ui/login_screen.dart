@@ -13,6 +13,8 @@ import 'package:viapp/UserApp/widgets/customButton.dart';
 import 'bottom_nav_controller.dart';
 
 class LoginPradhaan extends StatefulWidget {
+  const LoginPradhaan({Key? key}) : super(key: key);
+
   @override
   _LoginPradhaanState createState() => _LoginPradhaanState();
 }

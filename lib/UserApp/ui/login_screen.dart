@@ -1,9 +1,13 @@
+
+import 'dart:ui';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:viapp/UserApp/ui/phone_otp_screen.dart';
 import 'package:viapp/UserApp/ui/registration_screen.dart';
 
 import '../const/AppColors.dart';
@@ -137,6 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+
                         SizedBox(
                           height: 20,
                         ),
@@ -175,7 +180,14 @@ class _LoginScreenState extends State<LoginScreen> {
                               width: 10,
                             ),
                             Expanded(
-                              child: TextField(
+                              child: TextFormField(
+                                validator: (value){
+                                  if(value!.isEmpty || !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)){
+                                    return "Enter Correct Email Address";
+                                  }else{
+                                    return null;
+                                  }
+                                },
                                 controller: _emailController,
                                 decoration: InputDecoration(
                                   hintText: "Enter Your Email",
@@ -216,7 +228,21 @@ class _LoginScreenState extends State<LoginScreen> {
                               width: 10,
                             ),
                             Expanded(
-                              child: TextField(
+                              child: TextFormField(
+                              validator:(val){
+                            if(val!.isEmpty){
+                            return "Required";
+                            }
+                            if(val.length < 6){
+                            return "Password must be atleast 6 characters long";
+                            }
+                            if(val.length > 20){
+                            return "Password must be less than 20 characters";
+                            }
+                            if(!val.contains(RegExp(r'[0-9]'))){
+                            return "Password must contain a number";
+                            }
+                            },
                                 controller: _passwordController,
                                 obscureText: _obscureText,
                                 decoration: InputDecoration(
@@ -304,6 +330,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             )
                           ],
                         ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Center(child: Text(('Or'),style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),)),
+
+                        Container(
+                          height: 150,
+                          child: MyLoginPage(),
+                        )
                       ],
                     ),
                   ),
