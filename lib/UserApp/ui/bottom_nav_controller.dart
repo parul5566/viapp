@@ -52,14 +52,14 @@ class _BottomNavControllerState extends State<BottomNavController> {
             label: ("Home"),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.filter_list), label: ("User List")),
+              icon: Icon(Icons.filter_list), label: ("Complaint List")),
           BottomNavigationBarItem(
             icon: Icon(Icons.notification_important),
             label: ("Notification"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: ("Person"),
+            label: ("Profile"),
           ),
 
           BottomNavigationBarItem(

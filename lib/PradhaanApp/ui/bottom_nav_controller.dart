@@ -14,9 +14,9 @@ class BottomNavController1 extends StatefulWidget {
 
 class _BottomNavController1State extends State<BottomNavController1> {
   final _pages = [
-    const PradhaanProfile(),
-    const ComplaintList(),
     const HomePage(),
+    const ComplaintList(),
+    const PradhaanProfile(),
   ];
   var _currentIndex = 0;
 
@@ -51,7 +51,7 @@ class _BottomNavController1State extends State<BottomNavController1> {
 
       /*    BottomNavigationBarItem(
             icon: Icon(Icons.notification_important),
-            label: ("Notification"),
+            label: ("Notification"),S
           ),*/
 
 
