@@ -1,3 +1,7 @@
+
+
+import 'dart:ui';
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
@@ -14,17 +18,19 @@ class ComplaintList extends StatefulWidget {
 class _ComplaintListState extends State<ComplaintList> {
   late Query _ref;
 
+
   TextEditingController _complaintstatusController = TextEditingController();
-  List<String> complaintstatus = ["Male", "Female", "Other"];
+ final List<String> complaintstatus = ["Pending", "Confirmed", "Waiting"];
 
   DatabaseReference reference =
-  FirebaseDatabase.instance.reference().child('Complaints');
+  FirebaseDatabase.instance.ref().child('Complaints');
   @override
   void initState() {
-
+    _complaintstatusController = TextEditingController();
     super.initState();
+
     _ref = FirebaseDatabase.instance
-        .reference()
+        .ref()
         .child('Complaints')
         .orderByChild('name');
   }
@@ -33,7 +39,7 @@ class _ComplaintListState extends State<ComplaintList> {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       padding: EdgeInsets.all(10),
-      height: 130,
+      height: 180,
       color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -151,32 +157,36 @@ class _ComplaintListState extends State<ComplaintList> {
                 ),
               ),
               SizedBox(
-                width: 20,
+                width: 10,
               ),
 
-              Container(
-                width: 50,
-                child: TextField(
-                  controller: _complaintstatusController,
-                  readOnly: true,
-                  decoration: InputDecoration(
-                    hintText: "verify  status of User",
-                    prefixIcon: DropdownButton<String>(
-                      items: complaintstatus.map((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: new Text(value),
-                          onTap: () {
-                            setState(() {
-                              _complaintstatusController.text = value;
-                            });
-                          },
-                        );
-                      }).toList(),
-                      onChanged: (_) {},
+              Row(
+                children: [
+                   Text("Status :-",style: TextStyle(color: Colors.green,fontWeight: FontWeight.w800),),
+                  Container(
+                    width: 220,
+                    child: TextField(
+                      controller: _complaintstatusController,
+                      readOnly: true,
+                      decoration: InputDecoration(
+                        prefixIcon: DropdownButton<String>(
+                          items: complaintstatus.map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: new Text(value),
+                              onTap: () {
+                                setState(() {
+                                  _complaintstatusController.text = value;
+                                });
+                              },
+                            );
+                          }).toList(),
+                          onChanged: (_) {},
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
           /*    GestureDetector(
                 onTap: () {
@@ -199,9 +209,9 @@ class _ComplaintListState extends State<ComplaintList> {
                   ],
                 ),
               ),*/
-              SizedBox(
+             /* SizedBox(
                 width: 20,
-              ),
+              ),*/
             ],
           )
         ],

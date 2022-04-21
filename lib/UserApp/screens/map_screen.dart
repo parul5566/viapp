@@ -328,6 +328,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:viapp/UserApp/const/AppColors.dart';
 import 'package:viapp/UserApp/ui/auth_controller.dart';
 import 'package:viapp/UserApp/ui/login_screen.dart';
 
@@ -350,7 +351,6 @@ class _UserPageState extends State<UserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
      /*   actions: [IconButton(onPressed: () async {
           await _prefService.removeCache("password").whenComplete(() {
             Navigator.push(
@@ -373,6 +373,57 @@ class _UserPageState extends State<UserPage> {
           ),
         ),
       ),
+
+
+
+
+/*   drawer:  Drawer(
+    child: Column(
+    children: [
+    Container(
+    width: double.infinity,
+    padding: EdgeInsets.all(20),
+    color: AppColors.deep_orange,
+    child: Center(
+    child: Column(
+    children: [
+    Container(
+    width: 100,
+    height: 100,
+    margin: EdgeInsets.only(top: 30, bottom: 30),
+    decoration: BoxDecoration(
+    shape: BoxShape.circle,
+    image: DecorationImage(
+    image: AssetImage('assets/img/worker.png'),
+    ),
+    ),
+    ),
+    _auth.currentUser != null
+    ? Text(
+    _auth.currentUser.email,
+    style: TextStyle(
+    color: white,
+    fontSize: 18,
+    fontFamily: 'Righteous'),
+    )
+        : Text(''),
+    ],
+    ),
+    ),
+    ),
+    ListTile(
+    leading: Icon(Icons.exit_to_app),
+    title: Text('Sign out'),
+    onTap: () async {
+    await _auth.signOut().then((value) => navigateLogin());
+    },
+    )
+    ],
+    ),
+    ),*/
+
+
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(30.0),

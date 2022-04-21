@@ -173,12 +173,12 @@ class _EditContactState extends State<EditContact> {
     Map? contact = snapshot.value as Map?;
 
     _nameController.text = contact!['name'];
-
     _numberController.text = contact['number'];
     _queryController.text = contact['query'];
     setState(() {
       _typeSelected = contact['type'];
-    });
+    }
+    );
   }
 
   void saveContact() {

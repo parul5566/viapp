@@ -92,8 +92,8 @@ class _BaseAppState extends State<BaseApp> {
                 MaterialButton(
                   padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                   minWidth: MediaQuery.of(context).size.width,
-                  onPressed: () {
-                    setState(() {
+                    onPressed: () {
+                      setState(() {
                       isLoading = true;
                     });
 
