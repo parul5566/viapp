@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:viapp/UserApp/screens/edit_contact.dart';
 
 
 
@@ -12,6 +13,10 @@ class ComplaintList extends StatefulWidget {
 
 class _ComplaintListState extends State<ComplaintList> {
   late Query _ref;
+
+  TextEditingController _complaintstatusController = TextEditingController();
+  List<String> complaintstatus = ["Male", "Female", "Other"];
+
   DatabaseReference reference =
   FirebaseDatabase.instance.reference().child('Complaints');
   @override
@@ -116,7 +121,7 @@ class _ComplaintListState extends State<ComplaintList> {
             ],
           ),
 
-          /* Row(
+           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               GestureDetector(
@@ -148,7 +153,32 @@ class _ComplaintListState extends State<ComplaintList> {
               SizedBox(
                 width: 20,
               ),
-              GestureDetector(
+
+              Container(
+                width: 50,
+                child: TextField(
+                  controller: _complaintstatusController,
+                  readOnly: true,
+                  decoration: InputDecoration(
+                    hintText: "verify  status of User",
+                    prefixIcon: DropdownButton<String>(
+                      items: complaintstatus.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: new Text(value),
+                          onTap: () {
+                            setState(() {
+                              _complaintstatusController.text = value;
+                            });
+                          },
+                        );
+                      }).toList(),
+                      onChanged: (_) {},
+                    ),
+                  ),
+                ),
+              ),
+          /*    GestureDetector(
                 onTap: () {
                   _showDeleteDialog(contact: contact);
                 },
@@ -168,12 +198,12 @@ class _ComplaintListState extends State<ComplaintList> {
                             fontWeight: FontWeight.w600)),
                   ],
                 ),
-              ),
+              ),*/
               SizedBox(
                 width: 20,
               ),
             ],
-          )*/
+          )
         ],
       ),
     );
