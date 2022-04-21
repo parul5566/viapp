@@ -407,15 +407,15 @@ class _UserPageState extends State<UserPage> {
                       ),
                     ),
                   ),
-                  _auth.currentUser != null
+                 /* _auth.currentUser != null
                       ? Text(
                     _auth.currentUser.email,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontFamily: 'Righteous'),
-                  )
-                      : Text(''),
+                  )*/
+                      : Text('email'),
                 ],
               ),
             ),
@@ -429,7 +429,7 @@ class _UserPageState extends State<UserPage> {
           )
         ],
       ),
-    );
+    ),
 
 
 
