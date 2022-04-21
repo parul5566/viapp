@@ -330,8 +330,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:viapp/UserApp/const/AppColors.dart';
+import 'package:viapp/UserApp/screens/contacts.dart';
 import 'package:viapp/UserApp/ui/auth_controller.dart';
-import 'package:viapp/UserApp/ui/login_screen.dart';
 
 
 class UserPage extends StatefulWidget {
@@ -415,7 +415,7 @@ class _UserPageState extends State<UserPage> {
                         fontSize: 18,
                         fontFamily: 'Righteous'),
                   )*/
-                      : Text('email'),
+                    /*  : Text('email'),*/
                 ],
               ),
             ),
