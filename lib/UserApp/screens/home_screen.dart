@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:viapp/PradhaanApp/screens/bottom_nav.dart';
+import 'package:viapp/UserApp/screens/bottom_nav.dart';
 import 'package:viapp/UserApp/screens/contacts.dart';
 import 'package:viapp/UserApp/screens/map_screen.dart';
-import 'package:viapp/UserApp/screens/profile_screen.dart';
 import 'package:viapp/UserApp/ui/user_form.dart';
 
 
@@ -31,6 +30,18 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+
+
+
+
+
+
+
+
+
+
+
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,

@@ -326,10 +326,10 @@ class _MapsSampleState extends State<MapsSample> {
 
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:viapp/UserApp/const/AppColors.dart';
+
 import 'package:viapp/UserApp/screens/contacts.dart';
 import 'package:viapp/UserApp/ui/auth_controller.dart';
 
@@ -342,16 +342,16 @@ class UserPage extends StatefulWidget {
 }
 
 class _UserPageState extends State<UserPage> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+/*  final FirebaseAuth _auth = FirebaseAuth.instance;*/
 
   bool isLoading = false;
   double value  = 0;
   final PrefService _prefService = PrefService();
 
 
-  navigateLogin() async {
+/*  navigateLogin() async {
     Navigator.pushReplacementNamed(context, "login");
-  }
+  }*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -386,13 +386,13 @@ class _UserPageState extends State<UserPage> {
 
 
 
-    drawer:  Drawer(
+  /*  drawer:  Drawer(
       child: Column(
         children: [
           Container(
             width: double.infinity,
             padding: EdgeInsets.all(20),
-            color: AppColors.deep_orange,
+            color: Colors.white,
             child: Center(
               child: Column(
                 children: [
@@ -407,15 +407,15 @@ class _UserPageState extends State<UserPage> {
                       ),
                     ),
                   ),
-                 /* _auth.currentUser != null
+                 *//* _auth.currentUser != null
                       ? Text(
                     _auth.currentUser.email,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontFamily: 'Righteous'),
-                  )*/
-                    /*  : Text('email'),*/
+                  )*//*
+                    *//*  : Text('email'),*//*
                 ],
               ),
             ),
@@ -429,7 +429,7 @@ class _UserPageState extends State<UserPage> {
           )
         ],
       ),
-    ),
+    ),*/
 
 
 

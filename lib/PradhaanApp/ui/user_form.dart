@@ -17,10 +17,13 @@ class _PradhaanFormState extends State<PradhaanForm> {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _phoneController = TextEditingController();
   TextEditingController _dobController = TextEditingController();
+
   TextEditingController _genderController = TextEditingController();
+
   TextEditingController _ageController = TextEditingController();
   TextEditingController _currentaddressController = TextEditingController();
   TextEditingController _permanentaddressController = TextEditingController();
+
   List<String> gender = ["Male", "Female", "Other"];
 
   Future<void> _selectDateFromPicker(BuildContext context) async {
@@ -44,7 +47,9 @@ class _PradhaanFormState extends State<PradhaanForm> {
       "name":_nameController.text,
       "phone":_phoneController.text,
       "dob":_dobController.text,
+
       "gender":_genderController.text,
+
       "age":_ageController.text,
       "currentaddress":_currentaddressController.text,
       "permanentaddress":_permanentaddressController.text,
@@ -110,7 +115,9 @@ class _PradhaanFormState extends State<PradhaanForm> {
                           },
                         );
                       }).toList(),
-                      onChanged: (_) {},
+                      onChanged: (_) {
+                       
+                      },
                     ),
                   ),
                 ),
