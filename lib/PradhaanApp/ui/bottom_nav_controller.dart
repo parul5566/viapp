@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:viapp/PradhaanApp/screens/contacts.dart';
+import 'package:viapp/PradhaanApp/screens/dropdown_screen.dart';
 import 'package:viapp/PradhaanApp/screens/main_screen.dart';
-import 'package:viapp/PradhaanApp/ui/dropdown_list.dart';
 import 'package:viapp/UserApp/const/AppColors.dart';
 
 
@@ -18,6 +18,7 @@ class _BottomNavController1State extends State<BottomNavController1> {
     const HomePage(),
     const ComplaintList(),
     const PradhaanProfile(),
+
 
   ];
   var _currentIndex = 0;
@@ -61,13 +62,13 @@ class _BottomNavController1State extends State<BottomNavController1> {
           ),*/
 
 
-         /* BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: ("Person"),
-          ),*/
-
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
+            label: ("Person"),
+          ),
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
             label: ("Profile"),
           ),
         ],
