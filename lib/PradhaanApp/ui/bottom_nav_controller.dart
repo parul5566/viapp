@@ -35,6 +35,10 @@ class _BottomNavController1State extends State<BottomNavController1> {
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),*/
+
+
+
+
       bottomNavigationBar: BottomNavigationBar(
         elevation: 5,
         selectedItemColor: AppColors.deep_orange,

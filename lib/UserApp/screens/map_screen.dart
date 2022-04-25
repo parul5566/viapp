@@ -329,9 +329,17 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:viapp/PradhaanApp/screens/notifi_cation.dart';
+import 'package:viapp/PradhaanApp/ui/search_screen.dart';
 
 import 'package:viapp/UserApp/screens/contacts.dart';
+import 'package:viapp/UserApp/screens/profile_screen.dart';
+import 'package:viapp/UserApp/screens/user_list.dart';
+import 'package:viapp/UserApp/ui/About/AboutUsPage.dart';
 import 'package:viapp/UserApp/ui/auth_controller.dart';
+import 'package:viapp/UserApp/ui/bottom_nav_pages/profile.dart';
+import 'package:viapp/UserApp/ui/user_screen.dart';
+
 
 
 class UserPage extends StatefulWidget {
@@ -349,6 +357,61 @@ class _UserPageState extends State<UserPage> {
   final PrefService _prefService = PrefService();
 
 
+
+
+  Widget createDrawerBodyItem(
+      {required IconData icon, required String text, required GestureTapCallback onTap}) {
+    return ListTile(
+
+      title: Row(
+        children: <Widget>[
+          Icon(icon),
+          Padding(
+            padding: EdgeInsets.only(left: 8.0),
+            child: Text(text),
+          )
+        ],
+      ),
+      onTap: onTap,
+    );
+  }
+
+
+  Widget createDrawerHeader() {
+    return InkWell(
+
+      onTap: (){
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                const Profile()));
+      },
+      child: DrawerHeader(
+          margin: EdgeInsets.zero,
+          padding: EdgeInsets.zero,
+          decoration: BoxDecoration(
+            color: Colors.green,
+              image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image:  AssetImage('assets/icon.png'))),
+          child: Stack(children: <Widget>[
+            Positioned(
+                bottom: 12.0,
+                left: 16.0,
+                child: Text("Welcome to User",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w500))),
+          ])),
+    );
+  }
+
+
+
+
+
 /*  navigateLogin() async {
     Navigator.pushReplacementNamed(context, "login");
   }*/
@@ -356,13 +419,13 @@ class _UserPageState extends State<UserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-     /*   actions: [IconButton(onPressed: () async {
+       /* actions: [IconButton(onPressed: () async {
           await _prefService.removeCache("password").whenComplete(() {
             Navigator.push(
                 context,
                 CupertinoPageRoute(
                     builder: (context) =>
-                        LoginScreen()));
+                        AboutUsPage()));
           });
 
 
@@ -372,6 +435,7 @@ class _UserPageState extends State<UserPage> {
         title: Center(
           child: Row(
             children: [
+
               Image.asset('assets/icon.png',width: 30),
               Text('Gramin Complaint App'),
             ],
@@ -385,8 +449,79 @@ class _UserPageState extends State<UserPage> {
 
 
 
+     endDrawer: Drawer(
 
-  /*  drawer:  Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              createDrawerHeader(),
+              createDrawerBodyItem(
+                icon: Icons.home,
+                text: 'Home',
+                onTap: () =>
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                             UserPage())),
+              ),
+              createDrawerBodyItem(
+                icon: Icons.account_circle,
+                text: 'Profile',
+                onTap: () =>
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                            const Profile())),
+              ),
+
+              createDrawerBodyItem(
+                icon: Icons.filter_list_sharp,
+                text: 'UserList',
+                onTap: () =>
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                            const UserList())),
+              ),
+              Divider(),
+              createDrawerBodyItem(
+                icon: Icons.notifications_active,
+                text: 'Notifications',
+                onTap: () =>
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                             NotificationPage())),
+              ),
+              createDrawerBodyItem(
+                icon: Icons.search,
+                text: 'Search',
+                onTap: () =>
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                            const SearchScreen(
+                            ))),
+              ),
+              ListTile(
+                title: Text('App version 1.0.0'),
+                onTap: () {},
+              ),
+            ],
+          ),
+        ),
+
+
+
+
+
+
+    /*  drawer:  Drawer(
       child: Column(
         children: [
           Container(

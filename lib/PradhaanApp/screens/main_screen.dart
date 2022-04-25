@@ -130,6 +130,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:viapp/PradhaanApp/screens/contacts.dart';
+import 'package:viapp/PradhaanApp/ui/bottom_nav_pages/profile.dart';
 
 
 
@@ -145,6 +146,62 @@ class _HomePageState extends State<HomePage> {
 
   bool isLoading = false;
   double value  = 0;
+
+  Widget createDrawerBodyItem(
+      {required IconData icon, required String text, required GestureTapCallback onTap}) {
+    return ListTile(
+
+      title: Row(
+        children: <Widget>[
+          Icon(icon),
+          Padding(
+            padding: EdgeInsets.only(left: 8.0),
+            child: Text(text),
+          )
+        ],
+      ),
+      onTap: onTap,
+    );
+  }
+
+
+  Widget createDrawerHeader() {
+    return InkWell(
+
+      onTap: (){
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                const PradhaanProfile()));
+      },
+      child: DrawerHeader(
+          margin: EdgeInsets.zero,
+          padding: EdgeInsets.zero,
+          decoration: BoxDecoration(
+              color: Colors.green,
+              image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image:  AssetImage('assets/icon.png'))),
+          child: Stack(children: <Widget>[
+            Positioned(
+                bottom: 12.0,
+                left: 16.0,
+                child: Text("Welcome to Pradhaan",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w500))),
+          ])),
+    );
+  }
+
+
+
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -162,6 +219,77 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+
+
+      endDrawer: Drawer(
+
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            createDrawerHeader(),
+            createDrawerBodyItem(
+              icon: Icons.home,
+              text: 'Home',
+              onTap: () =>
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              HomePage())),
+            ),
+            createDrawerBodyItem(
+              icon: Icons.account_circle,
+              text: 'Profile',
+              onTap: () =>
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                          const PradhaanProfile())),
+            ),
+
+           /* createDrawerBodyItem(
+              icon: Icons.filter_list_sharp,
+              text: 'UserList',
+              onTap: () =>
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                          const UserList())),
+            ),*/
+           /* Divider(),
+            createDrawerBodyItem(
+              icon: Icons.notifications_active,
+              text: 'Notifications',
+              onTap: () =>
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              NotificationPage())),
+            ),*/
+            createDrawerBodyItem(
+              icon: Icons.search,
+              text: 'UserList',
+              onTap: () =>
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                          const ComplaintList(
+                          ))),
+            ),
+            ListTile(
+              title: Text('App version 1.0.0'),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
+
+
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(30.0),
