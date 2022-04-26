@@ -15,6 +15,8 @@ import '../widgets/customButton.dart';
 import 'bottom_nav_controller.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }

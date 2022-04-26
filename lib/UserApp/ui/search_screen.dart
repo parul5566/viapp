@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class SearchScreen extends StatefulWidget {
-  const SearchScreen({Key? key}) : super(key: key);
+class ComplaintPage1 extends StatefulWidget {
+  const ComplaintPage1({Key? key}) : super(key: key);
 
   @override
-  _SearchScreenState createState() => _SearchScreenState();
+  _ComplaintPage1State createState() => _ComplaintPage1State();
 }
 
-class _SearchScreenState extends State<SearchScreen> {
+class _ComplaintPage1State extends State<ComplaintPage1> {
   var inputText = "";
   @override
   Widget build(BuildContext context) {
@@ -42,9 +42,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: Container(
                     child: StreamBuilder(
                         stream: FirebaseFirestore.instance
-                            .collection("users-form-data")
-                            .where("currentaddress",
-                                isGreaterThanOrEqualTo: inputText)
+                            .collection("Complaints")
                             .snapshots(),
                         builder: (BuildContext context,
                             AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -69,8 +67,8 @@ class _SearchScreenState extends State<SearchScreen> {
                               return Card(
                                 elevation: 5,
                                 child: ListTile(
-                                  title: Text(data['currentaddress']),
-                                  subtitle: Text(data["name"]),
+                                  title: Text(data['name']),
+                                  subtitle: Text(data["number"]),
                                 ),
                               );
                             }).toList(),

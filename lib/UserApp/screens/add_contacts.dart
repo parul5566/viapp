@@ -23,7 +23,7 @@ late DatabaseReference _ref;
     _nameController = TextEditingController();
     _numberController = TextEditingController();
     _queryController = TextEditingController();
-    _ref = FirebaseDatabase.instance.reference().child('Complaints');
+    _ref = FirebaseDatabase.instance.ref().child('Complaints');
   }
 
 

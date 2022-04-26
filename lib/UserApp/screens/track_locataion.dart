@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class TrackPage extends StatefulWidget {
-   TrackPage({Key? key}) : super(key: key);
+   const TrackPage({Key? key}) : super(key: key);
 
   @override
   State<TrackPage> createState() => _TrackPageState();

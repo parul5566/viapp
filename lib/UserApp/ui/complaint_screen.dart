@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 
 
 
-*/
-/*
+
 class DropList extends StatefulWidget {
   @override
   _DropListState createState() => _DropListState();
@@ -134,15 +133,13 @@ class _DropListState extends State<DropList> {
       ),
     );
   }
-}*//*
-
-
-*/
+}*/
 
 
 
 
 
+/*
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -154,6 +151,8 @@ import 'package:viapp/UserApp/widgets/myTextField.dart';
 
 
 class ComplaintForm extends StatefulWidget {
+  const ComplaintForm({Key? key}) : super(key: key);
+
   @override
   _ComplaintFormState createState() => _ComplaintFormState();
 }
@@ -187,7 +186,8 @@ class _ComplaintFormState extends State<ComplaintForm> {
   sendUserDataToDB()async{
     final FirebaseAuth _auth = FirebaseAuth.instance;
     var  currentUser = _auth.currentUser;
-    CollectionReference _collectionRef = FirebaseFirestore.instance.collection("Pradhan-form-data");
+    CollectionReference _collectionRef = FirebaseFirestore.instance.collection("Complaint-form-data");
+
     return _collectionRef.doc(currentUser!.email).set({
       "name":_nameController.text,
       "phone":_phoneController.text,
@@ -287,4 +287,5 @@ class _ComplaintFormState extends State<ComplaintForm> {
     );
   }
 }
+*/
 

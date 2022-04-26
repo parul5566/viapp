@@ -13,7 +13,7 @@ class Users extends StatefulWidget {
 class _UsersState extends State<Users> {
   late Query _ref;
   DatabaseReference reference =
-  FirebaseDatabase.instance.reference().child('User');
+  FirebaseDatabase.instance.ref().child('User');
   @override
   void initState() {
     // TODO: implement initState

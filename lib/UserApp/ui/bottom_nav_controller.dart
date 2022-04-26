@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:viapp/PradhaanApp/screens/notifi_cation.dart';
+import 'package:viapp/UserApp/screens/compl_aint.dart';
 import 'package:viapp/UserApp/screens/contacts.dart';
 import 'package:viapp/UserApp/screens/map_screen.dart';
+import 'package:viapp/UserApp/ui/complaint_screen.dart';
 import 'package:viapp/UserApp/ui/phone_otp_screen.dart';
 import 'package:viapp/UserApp/ui/search_screen.dart';
 
@@ -22,6 +24,7 @@ class _BottomNavControllerState extends State<BottomNavController> {
      NotificationPage(),
     const Profile(),
     const SearchScreen(),
+     ComplaintPage1(),
   ];
   var _currentIndex = 0;
 
@@ -65,6 +68,12 @@ class _BottomNavControllerState extends State<BottomNavController> {
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: ("Search"),
+          ),
+
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: ("List"),
           ),
         ],
         onTap: (index) {

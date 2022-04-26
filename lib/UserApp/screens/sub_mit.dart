@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:viapp/UserApp/screens/track_locataion.dart';
 
 class SuccessPage extends StatefulWidget {
-   SuccessPage({Key? key}) : super(key: key);
+   const SuccessPage({Key? key}) : super(key: key);
 
   @override
   State<SuccessPage> createState() => _SuccessPageState();

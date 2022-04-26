@@ -2,7 +2,6 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:viapp/UserApp/ui/auth_controller.dart';
 
 import 'add_contacts.dart';
 import 'edit_contact.dart';
@@ -27,8 +26,9 @@ class _ContactsState extends State<Contacts> {
 
 
   late Query _ref;
+
   DatabaseReference reference =
-  FirebaseDatabase.instance.reference().child('Complaints');
+  FirebaseDatabase.instance.ref().child('Complaints');
   @override
   void initState() {
 
@@ -50,7 +50,7 @@ class _ContactsState extends State<Contacts> {
 
 
 
-  Widget _buildContactItem({required Map contact}) {
+  Widget _buildContactItem({required Map  contact}) {
     Color typeColor = getTypeColor(contact['type']);
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),

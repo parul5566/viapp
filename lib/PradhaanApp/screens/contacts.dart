@@ -21,9 +21,9 @@ class _ComplaintListState extends State<ComplaintList> {
 
   TextEditingController _complaintstatusController = TextEditingController();
  final List<String> complaintstatus = ["Pending", "Confirmed", "Waiting"];
-
   DatabaseReference reference =
   FirebaseDatabase.instance.ref().child('Complaints');
+
   @override
   void initState() {
     _complaintstatusController = TextEditingController();
